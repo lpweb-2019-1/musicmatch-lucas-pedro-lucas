@@ -55,6 +55,24 @@ export class DiscoService {
 
   }
 
+  /**
+   *
+   * @param nãoGostar O usuário pode escolher não gostar de uma música.
+   */
+
+  naoGostarDaMusica(musica) {
+    const m = this.encontrarMusica(musica.id)
+    console.log(m)
+    if (!m) return null
+    if (m.naoGostei === 0 && m.gostei === 0) {
+      m.naoGostei++
+      return m
+    } else if (m.naoGostei === 0 && m.gostei === 1) {
+      m.naoGostei++
+      m.gostei--
+      return m
+    }
+  }
 
   /**
    * Encontra e retorna um gênero na lista de gêneros com base no nome.
