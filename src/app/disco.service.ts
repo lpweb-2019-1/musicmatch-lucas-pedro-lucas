@@ -34,10 +34,31 @@ export class DiscoService {
     this.adicionarMusica('Pela luz dos olhos teus', ['Antônio Carlos Jobim', 'Miúcha'], 'Bossa Nova');
 
   }
+  /**
+   *
+   * @param gostar O usuário deve ter opção de curtir uma música.
+   */
+
+  gostarDaMusica(musica) {
+    const m = this.encontrarMusica(musica.id)
+    console.log(m)
+
+    if (!m) return null
+    if (m.gostei === 0 && m.naoGostei === 0) {
+      m.gostei++
+      return m
+    } else if (m.gostei === 0 && m.naoGostei === 1) {
+      m.naoGostei--
+      m.gostei++
+      return m
+    }
+
+  }
+
 
   /**
    * Encontra e retorna um gênero na lista de gêneros com base no nome.
-   * 
+   *
    * @param nome Nome do gênero
    */
   encontrarGeneroPorNome(nome) {
@@ -46,7 +67,7 @@ export class DiscoService {
 
   /**
    * Encontra e retorna um gênero da lista de gêneros.
-   * 
+   *
    * @param genero Nome ou identificador do gênero
    */
   encontrarGenero(genero) {
@@ -59,7 +80,7 @@ export class DiscoService {
 
   /**
    * Adiciona um gênero na lista de gêneros.
-   * 
+   *
    * @param nome O nome do gênero
    * @param generoPai O nome ou identificador do gênero pai
    */
@@ -78,7 +99,7 @@ export class DiscoService {
 
   /**
    * Adicionar um artista na lista de artistas.
-   * 
+   *
    * @param nome Nome do artista
    */
   adicionarArtista(nome) {
@@ -95,18 +116,20 @@ export class DiscoService {
   }
 
   /**
-   * Adiciona uma música na lista de músicas. 
-   * 
+   * Adiciona uma música na lista de músicas.
+   *
    * Este método verifica os parâmetros para operar da forma correta:
-   * 
+   *
    * * obtém o objeto correspondente ao parâmetro `genero`; se não existir, cadastra
    * * para cada item do array `artistas`, verifica se ele existe e, caso contrário, o adiciona na lista de artistas
-   * 
+   *
    * Com base nisso, o método cria o objeto para ser adicionado corretamente na lista de músicas.
-   * 
+   *
    * @param titulo O título da música
    * @param artistas Os artistas da música; pode ser array de string ou array de número (identificador)
    * @param genero O gênero da música; pode ser string ou identificador
+   * @param gostei O gostei da música; inicia com o valor 0 (zero); valor maior do que zero indica que o usuário `gostou` da música
+   * @param naoGostei O naoGostei da música; inicia com o valor 0 (zero); valor maior do que zero indica que o usuário `Não gostou` da música
    */
   adicionarMusica(titulo, artistas, genero) {
     let g = this.encontrarGenero(genero);
@@ -129,7 +152,9 @@ export class DiscoService {
       id: this.musicas.length + 1,
       titulo,
       idGenero: g.id,
-      artistas: listaArtistas
+      artistas: listaArtistas,
+      gostei: 0,
+      naoGostei: 0
     };
     this.musicas.push(musica);
     return musica;
@@ -137,7 +162,7 @@ export class DiscoService {
 
   /**
    * Encontra e retorna um artista.
-   * 
+   *
    * @param id Nome ou identificador do artista
    */
   encontrarArtista(artista) {
@@ -150,7 +175,7 @@ export class DiscoService {
 
   /**
    * Encontra e retorna uma música.
-   * 
+   *
    * @param musica Título ou identificador da música
    */
   encontrarMusica(musica) {
@@ -187,7 +212,7 @@ export class DiscoService {
 
   /**
    * Encontra e retorna a lista de músicas do artista.
-   * 
+   *
    * @param artista Identificador ou nome do artista
    */
   listaDeMusicasDoArtista(artista) {
@@ -206,7 +231,7 @@ export class DiscoService {
 
   /**
    * Preenche os atributos da música com objetos para artistas e gênero
-   * 
+   *
    * @param musica A música
    */
   preencherObjetoMusica(musica) {
@@ -224,7 +249,7 @@ export class DiscoService {
 
   /**
    * Preenche o objeto com a lista de músicas do artista.
-   * 
+   *
    * @param artista O artista
    */
   preencherObjetoArtista(artista) {

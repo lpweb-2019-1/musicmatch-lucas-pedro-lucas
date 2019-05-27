@@ -6,7 +6,7 @@ import { MusicasComponent } from './musicas/musicas.component';
 import { ArtistaComponent } from './artista/artista.component';
 
 const routes: Routes = [
-  {path: 'artistas/:id', component: ArtistaComponent},
+  { path: 'artistas/:id', component: ArtistaComponent },
   { path: 'musicas', component: MusicasComponent },
   { path: 'musicas/:id', component: MusicaComponent },
   { path: '', component: HomeComponent }
