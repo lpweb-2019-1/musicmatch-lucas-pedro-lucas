@@ -52,7 +52,9 @@
         <span
           *ngFor="let musica of disco.listaDeMusicasDoArtista(artista.nome)"
         >
-          {{ musica.titulo }}
+          <span>
+            {{ musica.titulo }}
+          </span>
           <span *ngFor="let genero of disco.listaDeGeneros()">
             <span *ngIf="genero.nome !== musica.genero.nome">
               <p *ngFor="let musica of genero.musicas">
