@@ -43,7 +43,6 @@ export class DiscoService {
   gostarDaMusica(musica) {
     const m = this.encontrarMusica(musica.id)
     console.log(m)
-
     if (!m) return null
     if (m.gostei === 0 && m.naoGostei === 0) {
       m.gostei++
@@ -64,7 +63,6 @@ export class DiscoService {
 
   naoGostarDaMusica(musica) {
     const m = this.encontrarMusica(musica.id)
-    console.log(m)
     if (!m) return null
     if (m.naoGostei === 0 && m.gostei === 0) {
       m.naoGostei++
