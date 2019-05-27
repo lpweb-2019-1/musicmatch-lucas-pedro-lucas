@@ -225,6 +225,7 @@ export class DiscoService {
     for (let musica of this.musicas) {
       this.preencherObjetoMusica(musica);
     }
+    console.log(this.musicas)
     return this.musicas;
   }
 
@@ -244,6 +245,7 @@ export class DiscoService {
     for (let musica of lista) {
       this.preencherObjetoMusica(musica);
     }
+    console.log(lista)
     return lista;
   }
 

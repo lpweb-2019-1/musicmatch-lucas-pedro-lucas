@@ -19,21 +19,37 @@
     <a [routerLink]="['/generos', musica.genero.id]">
       {{ musica.genero.nome }}
     </a>
-    <p (click)="disco.gostarDaMusica(musica)">
-      &nbsp;
-      {{ musica.gostei }}
-    </p>
-    <p (click)="disco.naoGostarDaMusica(musica)">
-      &nbsp;
+    <br />
+    <br />
+    <button class="btn btn-primary" (click)="disco.gostarDaMusica(musica)">
+      Gostei &nbsp;
+      {{ musica.gostei }}</button
+    >&nbsp;&nbsp;
+    <button class="btn btn-primary" (click)="disco.naoGostarDaMusica(musica)">
+      Não Gostei &nbsp;
       {{ musica.naoGostei }}
-    </p>
+    </button>
     <h3 class="mb-4 mt-5 border-bottom">Músicas</h3>
-    <aside>
-      <p></p>
-    </aside>
+    <p *ngIf="musica.gostei">
+      <span *ngFor="let artista of musica.artistas">
+        <span
+          *ngFor="let musica of disco.listaDeMusicasDoArtista(artista.nome)"
+        >
+          {{ musica.titulo }}
+          <span *ngFor="let genero of disco.listaDeGeneros()">
+            <span *ngIf="genero.nome === musica.genero.nome">
+              <p *ngFor="let musica of genero.musicas">
+                {{ musica.titulo }}
+              </p>
+            </span>
+          </span>
+        </span>
+        <br />
+      </span>
+    </p>
+    <p *ngIf="musica.naoGostei">
+      não funcionol
+    </p>
+    <div></div>
   </div>
 </section>
-<div>
-  {{ musica.artistas.nome }}
-  {{ musica.genero.nome }}
-</div>
