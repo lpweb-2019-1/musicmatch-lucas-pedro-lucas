@@ -1,7 +1,9 @@
 <section>
   <h1 class="mb-4 mt-5 border-bottom">Músicas</h1>
   <div *ngFor="let genero of generos">
-    <h2>{{ genero.nome }}</h2>
+    <a [routerLink]="['/generos', genero.id]">
+      <h2>{{ genero.nome }}</h2>
+    </a>
     <ul>
       <li *ngFor="let musica of genero.musicas">
         <a [routerLink]="['/musicas', musica.id]">
