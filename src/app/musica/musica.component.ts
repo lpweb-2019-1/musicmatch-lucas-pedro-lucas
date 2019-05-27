@@ -16,6 +16,7 @@ export class MusicaComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.musica = this.disco.encontrarMusica(parseInt(id));
     this.disco.preencherObjetoMusica(this.musica);
+
   }
 
 }
