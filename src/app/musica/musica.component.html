@@ -48,7 +48,21 @@
       </span>
     </p>
     <p *ngIf="musica.naoGostei">
-      não funcionol
+      <span *ngFor="let artista of musica.artistas">
+        <span
+          *ngFor="let musica of disco.listaDeMusicasDoArtista(artista.nome)"
+        >
+          {{ musica.titulo }}
+          <span *ngFor="let genero of disco.listaDeGeneros()">
+            <span *ngIf="genero.nome !== musica.genero.nome">
+              <p *ngFor="let musica of genero.musicas">
+                {{ musica.titulo }}
+              </p>
+            </span>
+          </span>
+        </span>
+        <br />
+      </span>
     </p>
     <div></div>
   </div>
