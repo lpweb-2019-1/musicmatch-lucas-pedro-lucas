@@ -36,7 +36,8 @@ export class DiscoService {
   }
   /**
    *
-   * @param gostar O usuário deve ter opção de curtir uma música.
+   * @param musica A música selecionada.
+   * @function gostarDaMusica() O usuário deve ter opção de curtir uma música.
    */
 
   gostarDaMusica(musica) {
@@ -57,7 +58,8 @@ export class DiscoService {
 
   /**
    *
-   * @param nãoGostar O usuário pode escolher não gostar de uma música.
+   * @param musica A música selecionada.
+   * @function naoGostarDaMusica() O usuário pode escolher não gostar de uma música.
    */
 
   naoGostarDaMusica(musica) {
