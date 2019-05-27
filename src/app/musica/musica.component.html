@@ -16,7 +16,9 @@
   <div>
     <i class="text-muted fas fa-tag"></i>
     &nbsp;
-    {{ musica.genero.nome }}
+    <a [routerLink]="['/generos', musica.genero.id]">
+      {{ musica.genero.nome }}
+    </a>
     <p (click)="disco.gostarDaMusica(musica)">
       &nbsp;
       {{ musica.gostei }}
@@ -27,3 +29,4 @@
     </p>
   </div>
 </section>
+<div></div>

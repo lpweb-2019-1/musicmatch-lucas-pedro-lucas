@@ -8,6 +8,7 @@ import { MusicaComponent } from './musica/musica.component';
 import { MusicasComponent } from './musicas/musicas.component';
 import { ArtistaComponent } from './artista/artista.component';
 import { GeneroComponent } from './genero/genero.component';
+import { GenerosComponent } from './generos/generos.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { GeneroComponent } from './genero/genero.component';
     MusicaComponent,
     MusicasComponent,
     ArtistaComponent,
-    GeneroComponent
+    GeneroComponent,
+    GenerosComponent
   ],
   imports: [
     BrowserModule,
