@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { MusicaComponent } from './musica/musica.component';
 import { MusicasComponent } from './musicas/musicas.component';
 import { ArtistaComponent } from './artista/artista.component';
+import { GeneroComponent } from './genero/genero.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ArtistaComponent } from './artista/artista.component';
     HomeComponent,
     MusicaComponent,
     MusicasComponent,
-    ArtistaComponent
+    ArtistaComponent,
+    GeneroComponent
   ],
   imports: [
     BrowserModule,
