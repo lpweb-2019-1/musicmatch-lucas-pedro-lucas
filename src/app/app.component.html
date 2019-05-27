@@ -1,6 +1,6 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" routerLink="/"
+    <a routerLink="/" class="navbar-brand"
       ><i class="fas fa-music"></i> MusicMatch</a
     >
     <button
@@ -18,26 +18,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/"
+          <a routerLink="/" class="nav-link"
             >Início <span class="sr-only">(current)</span></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="musicas">Músicas</a>
+          <a routerLink="musicas" class="nav-link">Músicas</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="pesquisar" class="nav-link">Pesquisar</a>
         </li>
       </ul>
     </div>
-    <form class="form-inline my-2 my-lg-0">
-      <input
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Pesquisar"
-        aria-label="Pesquisar"
-      />
-      <a class="btn btn-outline-success my-2 my-sm-0" role="button"
-        >Pesquisar</a
-      >
-    </form>
   </nav>
   <router-outlet></router-outlet>
 </div>

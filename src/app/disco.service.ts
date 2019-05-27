@@ -8,6 +8,7 @@ export class DiscoService {
   generos = [];
   artistas = [];
   musicas = [];
+  busca = null
 
   constructor() {
     this.adicionarGenero('Samba de Raiz');
@@ -39,6 +40,17 @@ export class DiscoService {
    * @param musica A música selecionada.
    * @function gostarDaMusica() O usuário deve ter opção de curtir uma música.
    */
+
+
+  pesquisar(pesquisa) {
+    let busca = [];
+    for (let musica of this.musicas) {
+      if (musica.titulo.indexOf(pesquisa) != -1) {
+        busca.push(musica);
+      }
+    }
+    return busca;
+  }
 
   gostarDaMusica(musica) {
     const m = this.encontrarMusica(musica.id)

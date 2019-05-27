@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { MusicasComponent } from './musicas/musicas.component';
 import { ArtistaComponent } from './artista/artista.component';
 import { GeneroComponent } from './genero/genero.component';
 import { PesquisarComponent } from './pesquisar/pesquisar.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { PesquisarComponent } from './pesquisar/pesquisar.component';
     ArtistaComponent,
     GeneroComponent,
     PesquisarComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

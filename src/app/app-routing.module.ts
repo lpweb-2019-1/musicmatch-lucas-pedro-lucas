@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'musicas', component: MusicasComponent },
   { path: 'musicas/:id', component: MusicaComponent },
   { path: 'generos/:id', component: GeneroComponent },
-  { path: 'pesquisar/:id', component: PesquisarComponent },
+  { path: 'pesquisar', component: PesquisarComponent },
   { path: '', component: HomeComponent }
 ];
 

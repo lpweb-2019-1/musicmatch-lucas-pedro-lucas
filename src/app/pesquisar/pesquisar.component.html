@@ -1,3 +1,6 @@
-<p>
-  pesquisar works!
-</p>
+<div class="md-form">
+  <input type="search" [(ngModel)]="search" placeholder="buscar música" />
+</div>
+<ul *ngFor="let musica of disco.pesquisar(search)">
+  <li>{{ musica.titulo }}</li>
+</ul>
