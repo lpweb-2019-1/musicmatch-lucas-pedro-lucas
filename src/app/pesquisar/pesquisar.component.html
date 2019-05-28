@@ -1,6 +1,14 @@
 <div class="md-form">
   <input type="search" [(ngModel)]="search" placeholder="buscar música" />
 </div>
-<ul *ngFor="let musica of disco.pesquisar(search)">
-  <li>{{ musica.titulo }}</li>
+<ul *ngFor="let dado of disco.pesquisar(search)">
+  <a *ngIf="dado.tipo == 'musica'" [routerLink]="['/musicas', dado.id]"
+    >({{ dado.tipo }}) {{ dado.titulo }}</a
+  >
+  <a *ngIf="dado.tipo == 'genero'" [routerLink]="['/genero', dado.id]"
+    >({{ dado.tipo }}) {{ dado.nome }}</a
+  >
+  <a *ngIf="dado.tipo == 'artista'" [routerLink]="['/artistas', dado.id]"
+    >({{ dado.tipo }}) {{ dado.nome }}</a
+  >
 </ul>

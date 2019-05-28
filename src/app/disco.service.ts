@@ -46,7 +46,20 @@ export class DiscoService {
     let busca = [];
     for (let musica of this.musicas) {
       if (musica.titulo.indexOf(pesquisa) != -1) {
+        musica.tipo = 'musica';
         busca.push(musica);
+      }
+    }
+    for (let artista of this.artistas) {
+      if (artista.nome.indexOf(pesquisa) != -1) {
+        artista.tipo = 'artista';
+        busca.push(artista);
+      }
+    }
+    for (let aux of this.generos) {
+      if (aux.nome.indexOf(pesquisa) != -1) {
+        aux.tipo = 'genero';
+        busca.push(aux);
       }
     }
     return busca;
